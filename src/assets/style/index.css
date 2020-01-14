@@ -1,0 +1,26 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #fafafa;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+#addCategory .container,
+#Categories .container {
+  background-color: white;
+}
+
+#Categories .container {
+  border-top: 3px solid #9b9bff !important;
+}
+
+.movieBtn button {
+  width: 150px;
+}
