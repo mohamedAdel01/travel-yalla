@@ -24,7 +24,6 @@ class App extends Component {
   // ====== METHODS ======
   updateCategories = (newCategories) => {
     this.setState({categories: newCategories})
-    console.log('kkk')
   }
 
   // ====== lifeCycle Hooks ========

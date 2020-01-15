@@ -31,7 +31,7 @@ class addCategory extends Component {
         super(props);
         this.state = {
             form: {
-                id: Math.random(),
+                id: null,
                 name: '',
                 movies: []
             }
@@ -40,7 +40,7 @@ class addCategory extends Component {
 
     // ===== METHODS =====
     create() {
-        this.props.categories.unshift(this.state.form)
+        this.props.categories.unshift({ ...this.state.form, id: Math.random() })
         this.props.updateCategories(this.props.categories)
     }
 }
