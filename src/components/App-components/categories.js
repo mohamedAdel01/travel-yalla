@@ -168,7 +168,6 @@ class Categories extends Component {
 // ====== lifeCycle Hooks ========
     componentDidMount() {
         //lets pretend as GET request and save it in variable response ^_^
-
         let response = {
             categories: [
               {
@@ -232,7 +231,8 @@ class Categories extends Component {
                 ]
               }
             ]
-          }   
+          }
+
         this.setState({ categories: response.categories })
     }
 }
