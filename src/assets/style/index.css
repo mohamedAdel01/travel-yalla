@@ -12,6 +12,8 @@ body {
   cursor: pointer;
 }
 
+.hidden { display:none; }
+
 #addCategory .container,
 #Categories .container {
   background-color: white;
