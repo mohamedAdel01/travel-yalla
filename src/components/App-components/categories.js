@@ -46,10 +46,10 @@ class Categories extends Component {
                                                 </div>
 
                                                 <div className="d-flex align-items-end mb-3 mx-3">
-                                                    <Button className={this.state.editState ? 'hidden' : ''} onClick={() => this.submit(category.name)} variant="info" type="button">
+                                                    <Button className={this.state.editState ? 'hidden' : ''} onClick={() => this.submit(category.id)} variant="info" type="button">
                                                         Create Movie
                                                     </Button>
-                                                    <Button className={!this.state.editState ? 'hidden' : ''} onClick={() => this.edit(category.name, c_i)} variant="info" type="button">
+                                                    <Button className={!this.state.editState ? 'hidden' : ''} onClick={() => this.edit(category.id, c_i)} variant="info" type="button">
                                                         Edit Movie
                                                     </Button>
                                                     <Button className={[!this.state.editState ? 'hidden' : '', 'mx-2']} onClick={() => this.clear()} variant="danger" type="button">
@@ -106,12 +106,13 @@ class Categories extends Component {
     }
 
 // ====== METHODS ======
-    submit(categoryName) {
+    submit(c_id) {
 
         if (!this.state.form.name) return
         this.props.categories.forEach(category => {
-            if (category.name === categoryName) {
+            if (category.id === c_id) {
                 category.movies.unshift({ ...this.state.form, id: Math.random() })
+                return
             }
         })
 
@@ -128,9 +129,9 @@ class Categories extends Component {
         this.clear()
     }
 
-    edit(categoryName, c_i) {        
+    edit(c_id, c_i) {        
         this.delete(c_i, this.state.movieToEdit.id)
-        this.submit(categoryName)
+        this.submit(c_id)
     }
 
     openEditMode(c_i, movie) {
