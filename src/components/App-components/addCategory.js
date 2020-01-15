@@ -10,13 +10,13 @@ class addCategory extends Component {
                         <h5 className="text-secondary">Add Category</h5>
                     </div>
                     <div className="d-flex justify-content-center pt-4">
-                        <Form className="col-6 px-2">
+                        <Form onSubmit={e => { e.preventDefault(); }} className="col-6 px-2">
                             <Form.Group controlId="englishName">
                                 <Form.Label>English Name</Form.Label>
-                                <Form.Control type="text" placeholder="English Name *" />
+                                <Form.Control value={this.state.form.name} onChange={e => this.setState({ form: { ...this.state.form, name: e.target.value } })} type="text" placeholder="English Name *" />
                             </Form.Group>
 
-                            <Button variant="info" type="submit">
+                            <Button onClick={() => this.create()} variant="info" type="button">
                                 Create Category
                             </Button>
                         </Form>
@@ -24,6 +24,24 @@ class addCategory extends Component {
                 </div>
             </section>
         )
+    }
+
+    // ===== DATA =====
+    constructor(props){
+        super(props);
+        this.state = {
+            form: {
+                id: Math.random(),
+                name: '',
+                movies: []
+            }
+        }
+    }
+
+    // ===== METHODS =====
+    create() {
+        this.props.categories.unshift(this.state.form)
+        this.props.updateCategories(this.props.categories)
     }
 }
 
